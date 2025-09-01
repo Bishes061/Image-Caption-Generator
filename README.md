@@ -1,22 +1,6 @@
 # Image Captioning
 
-This project is based on the  [*Show, Attend, and Tell*](https://arxiv.org/abs/1502.03044) paper. It is based on using an Encoder-Decoder type of network to caption images. The encoder is a pretrained CNN (Resnet-101) while the Decoder LSTM architecture along with an Attention mechanism.
-
-_________________
-
 Image Captioning is the process of generating a textual description of an image. It uses both Natural Language Processing and Computer Vision to generate the captions.
-
-<p align="center">
-  <img width="800" height="300" src="https://miro.medium.com/max/3548/1*6BFOIdSHlk24Z3DFEakvnQ.png">
-</p>
-
-### **High-level Overview of Image Captioning**
-
-**Network Architecture**
-
-<p align="center">
-  <img width="800" height="300" src="https://miro.medium.com/max/1124/1*A9VldrmKKP-YKJXf9Xtzag.jpeg">
-</p>
 
 **Encoder**
 
@@ -45,33 +29,6 @@ The use of Attention networks is widespread in deep learning, and with good reas
 **Beam Search**
 
 This is where we don't let our Decoder be lazy and simply choose the words with the best score at each decode-step. We avoid using the greedy approach because it's not necessary that the word with the highest probability at a time step would lead to a sentence with the best meaning or with highest probability. By setting a beam-size(k) of around (2-9) we expect the algorithm to keep track of at most k probable words that are in the running for a sentence with the highest score. Beam Search is useful for any language modeling problem because it finds the most optimal sequence. However, setting the beam width too large would slow down performance and a beam-search of k=1 is equivalent to a greedy approach.
-
-## Pre-requisites
-* You should understand how convolutional neural networks work. This also includes the understanding of transfer learning using the torchvision library.
-
-* Basic NLP concepts such as Word-Embeddings.
-
-* Understanding of Sequence Models along with LSTMs.
-
-* Understanding of Attention for images.
-
-* Other algorithms that you should be aware of is the Beam Search Technique.
-
-* Intermediate knowledge of PyTorch. 
-
-
-## Installation
-
-Use the package manager [pip](https://pip.pypa.io/en/stable/)
-
-```bash
-pip install opencv-python
-pip install numpy
-pip install pandas
-```
-To install Pytorch follow: [Pytorch](https://pytorch.org/get-started/locally/) 
-
-**Please note that the project is implemented and tested on Pytorch(1.5)** 
 
 
 ## Implementation
@@ -116,24 +73,3 @@ To install Pytorch follow: [Pytorch](https://pytorch.org/get-started/locally/)
 
 6. ```caption.py : ``` This file is a complete pipeline between inputting an image to finally captioning it.
 
-
-
-## Usage
-
-```python caption.py --img='images/child_playing_soccer.jpg' --model='BEST_checkpoint_coco_5_cap_per_img_5_min_word_freq.pth.tar' --word_map='data_output/WORDMAP_coco_5_cap_per_img_5_min_word_freq.json' --beam_size=5```
-<p align="center">
-  <img width="400" height="250" src="extras/output.png">
-</p>
-
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-## Acknowledgements
-
-[Image Captioning in Deep Learning](https://towardsdatascience.com/image-captioning-in-deep-learning-9cd23fb4d8d2) by Pranoy Radhakrishnan
-
-Sagar Vinodababu has an amazing tutorial on Image-captioning do check it out [here](https://github.com/sgrvinod/a-PyTorch-Tutorial-to-Image-Captioning)
-
-[Beam Search](https://www.youtube.com/watch?v=RLWuzLLSIgw) Lecture by Andrew Ng 
-
-[Attention Mechanism](https://www.youtube.com/watch?v=SysgYptB198) Lecture by Andrew Ng 
